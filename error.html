@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>Content Portal</title>
+
+<style>
+div {text-align: center;}
+</style>
+</head>
+
+<body>
+    <header>
+        <div>
+    <img style="display: block; margin:0 auto" src="./header.png" alt="logo">
+    </div>
+    </header>
+
+
+<div>
+	<h1>ERROR OCCURRED </h1><br/><br/>
+	<p><b>Please contact helpdesk at ondemand@sherwin.com.</b></p>
+	Error Code: <span id="errorCode"></span><br/>
+	Error Description: <span id="errorDesc"></span><br/>
+	Error Details: <span id="errorDetails"></span><br/>
+	Error Message: <span id="errorMsg"></span><br/>
+</div>
+
+
+<!--
+//
+// Implement any error handling / logging / URI sanitization here via JavaScript or server-side ajax.
+//
+//
+// Display a friendly Error message to the user based upon the error(s) contained in the URI
+//
+-->
+<script>
+	  const urlSearchParams = new URLSearchParams(window.location.search);
+		const params = urlSearchParams.get('error');
+		const message=JSON.parse(params);
+		document.getElementById("errorCode").innerHTML= message.errorCode;
+		document.getElementById("errorDesc").innerHTML= message.errorDescription;
+		document.getElementById("errorDetails").innerHTML= message.errorDetails;
+		document.getElementById("errorMsg").innerHTML= message.errorMessage;
+</script>
+</body>
+</html>
