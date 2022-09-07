@@ -21,7 +21,7 @@
 
     function loginToIdp() {  // Logs into the IdP via the socialize.login method
         var login_params =  ({
-           'provider': 'local_host',
+           'provider': 'saml-local_host',
            'callback': function(response) {
                              loginData = response;
                              returnedObject = JSON.stringify(loginData["user"], null, 4);
