@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script type="text/javascript" src="https://cdns.us1.gigya.com/js/gigya.js?apikey=4_00bAr1RBYQUlFq4XlucRww">
+    <script type="text/javascript" src="https://cdns.us1.gigya.com/js/gigya.js?apikey=3_HU-AZlI4PYHofJfVZ8QwACRIdsCpVUgNoSdrLo4kZGLrrcr9Qjr4hh8tfhzQWelo">
     </script>
     <script>
     function logoutWithSaml() {
@@ -21,7 +21,7 @@
 
     function loginToIdp() {  // Logs into the IdP via the socialize.login method
         var login_params =  ({
-           'provider': 'saml-local_host',
+           'provider': 'saml-suuplierhub_idp',
            'callback': function(response) {
                              loginData = response;
                              returnedObject = JSON.stringify(loginData["user"], null, 4);
