@@ -12,7 +12,7 @@
          	language= language.toLowerCase() === 'en-gb' ? 'en-GB'  : countryCd[0];
 	        var s = document.createElement('script');
 	        s.type = 'text/javascript';
-	        s.src = "https://cdns.us1.gigya.com/js/gigya.js?apikey=$APIKEY" + "&lang="+ language;
+	        s.src = "https://cdns.us1.gigya.com/js/gigya.js?apikey=4_00bAr1RBYQUlFq4XlucRww" + "&lang="+ language;
 	        document.getElementsByTagName('head')[0].appendChild(s); 
 	     
 	        });
@@ -28,7 +28,7 @@
         />
       </div>
     </header>
-    <div id="mindtickleContainer"></div>
+    <div id="container"></div>
 
     <script type="text/javascript" lang="javascript">
     function onGigyaServiceReady(serviceName) {
@@ -43,9 +43,9 @@
 	          'Your email or password is incorrect. Please try <a href="#" style="font-size: 13px !important;" onclick="gigya.accounts.showScreenSet({screenSet: \'MindTickle-RegistrationLogin\', startScreen: \'mindtickle-forgot-password\'})">resetting your password</a> or contact <a href="mailto:ondemand@sherwin.com" style="font-size: 13px !important;">support</a> at ondemand@sherwin.com.',
 	      };
 	      gigya.accounts.showScreenSet({
-	        screenSet: "MindTickle-RegistrationLogin",
-	        startScreen: "mindtickle-login",
-	        containerID: "mindtickleContainer",
+	        screenSet: "Default-RegistrationLogin",
+	        startScreen: "gigya-login-screen",
+	        containerID: "container",
 	        customLang: customLangParams,
 		context:JSON.parse(langCd),
 	      });
