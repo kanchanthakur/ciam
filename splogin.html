@@ -1,14 +1,15 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-    <script type="text/javascript" src="https://cdns.us1.gigya.com/js/gigya.js?apikey=3_HU-AZlI4PYHofJfVZ8QwACRIdsCpVUgNoSdrLo4kZGLrrcr9Qjr4hh8tfhzQWelo">
+    <script type="text/javascript" src="http://cdn.gigya.com/js/gigya.js?apiKey=4_t5vc2fBZU8R8DltEYTFTww">
     </script>
     <script>
     function logoutWithSaml() {
       gigya.accounts.logout({forceProvidersLogout: true,
         callback: function(response) {
-
-          if ( response.errorCode == 0 ) {
+          
+          if ( response.errorCode == 0 ) {              
             alert('You are now logged out from the SP!');
             document.getElementById('JStext').innerHTML = "Logged Out";
             }
@@ -18,58 +19,22 @@
         }
       });
     }
-
-    function loginToIdp() {  // Logs into the IdP via the socialize.login method
-        var login_params =  ({
-           'provider': 'saml-suuplierhub_idp'
-          /* 'callback': function(response) {
-                             loginData = response;
-                             returnedObject = JSON.stringify(loginData["user"], null, 4);
-                             document.getElementById('JStext').innerHTML = returnedObject;
-                             console.log(loginData);
-                           }*/
-        });
-        gigya.socialize.login(login_params);
-     
-    }
-
     function loginWithSaml() {
-        customButtons = [{
-        	// The custom button object for the IdP within a RaaS Screen-Set
-            "type": "saml",
-            "providerName":"saml-suuplierhub_idp",
-            "idpName":"suuplierhub_idp",
-            "iconURL": "http://developers.gigya.com/download/attachments/15795144/IDP.png",
-            "logoURL": "http://developers.gigya.com/download/attachments/14650850/placeholderImage.png",
-            "lastLoginIconURL":"http://developers.gigya.com/download/attachments/15795144/Externalidp_LastLogin.png",
-            "position":"4"
-
-        }];
-
-        customButton_params =
-        {
-            "customButtons":customButtons,
-            "showTermsLink":false, // 'terms' link is hidden
-            "screenSet":"Default-RegistrationLogin"
-        }
-        gigya.accounts.showScreenSet(customButton_params);
-      }
-
-      gigya.socialize.addEventHandlers({  // Support for handling the response in RaaS
-        onLogin: function(response) {
-                          loginData = response;
-                          returnedObject = JSON.stringify(loginData["user"], null, 4);
-                          document.getElementById('JStext').innerHTML = returnedObject;
-                          console.log(loginData);
-                        }
+      gigya.socialize.login({
+                provider: "saml-idpdemo",
+                callback: function(response) {
+                  loginData = response;
+                  returnedObject = JSON.stringify(loginData["user"], null, 4);
+                  document.getElementById('JStext').innerHTML = returnedObject;
+                  console.log(loginData);
+                }
       });
-
+    }
 </script>
 </head>
 <body>
-<input type="button" value="login To Idp" onclick="loginToIdp()" />&nbsp;&nbsp;
-<input type="button" value="Login with RaaS" onclick="loginWithSaml()" />&nbsp;&nbsp;
-<input type="button" value="Logout" onclick="logoutWithSaml();" />
+<input type="button" value="Login with SAML" onclick="loginWithSaml();" />&nbsp;&nbsp;
+<input type="button" value="Logout with SAML" onclick="logoutWithSaml();" />
 <br /><br />Response:
 <div class="responseDiv" id="responseDiv">
     <textarea id="JStext" value="" style="background-color: #EFEFEF; width: 80%; max-width: 80%; border: 3px inset grey; min-height: 300px; overflow: auto; border-radius: 7px;"></textarea>
