@@ -21,13 +21,13 @@
 
     function loginToIdp() {  // Logs into the IdP via the socialize.login method
         var login_params =  ({
-           'provider': 'saml-suuplierhub_idp',
-           'callback': function(response) {
+           'provider': 'saml-suuplierhub_idp'
+          /* 'callback': function(response) {
                              loginData = response;
                              returnedObject = JSON.stringify(loginData["user"], null, 4);
                              document.getElementById('JStext').innerHTML = returnedObject;
                              console.log(loginData);
-                           }
+                           }*/
         });
         gigya.socialize.login(login_params);
      
