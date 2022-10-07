@@ -35,7 +35,7 @@
 	     let langCd = '{ "lang" '+ ':"' + language + '"}';
 	      gigya.socialize.addEventHandlers({
 	        onLogin: function () {
-	          gigya.fidm.saml.initSSO({spName:'DEV_CIAM', redirectURL:'https://ejhp-dev21.login.us6.oraclecloud.com/oam/server/fed/sp/sso'});
+	          gigya.fidm.saml.initSSO({spName:'DEV_CIAM', redirectURL:'https://ejhp-dev21.login.us6.oraclecloud.com:443/oam/fed'});
 	        },
 	      });
 	      var customLangParams = {
