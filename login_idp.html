@@ -35,7 +35,7 @@
 	     let langCd = '{ "lang" '+ ':"' + language + '"}';
 	      gigya.socialize.addEventHandlers({
 	        onLogin: function () {
-	          gigya.fidm.saml.initSSO({spName:'DEV_CIAM', redirectURL:'https://dev-sso.sherwin.com/oamfed/idp/initiatesso?providerid=https://fidm.gigya.com/saml/v2.0/4_00bAr1RBYQUlFq4XlucRww'});
+	          gigya.fidm.saml.initSSO({spName:'DEV_CIAM', redirectURL:'https://ejhp-dev21.fa.us6.oraclecloud.com/fscmUI/faces/FuseWelcome'});
 	        },
 	      });
 	      var customLangParams = {
